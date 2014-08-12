@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 
 NAME = 'edw.recipe.responsecheck'
 PATH = NAME.split('.') + ['version.txt']
-VERSION = open(os.path.join(*PATH)).read.strip()
+VERSION = open(os.path.join(*PATH)).read().strip()
 
 entry_point = 'edw.recipe.responsecheck:Recipe'
 entry_points = {"zc.buildout": ["default = %s" % entry_point]}
