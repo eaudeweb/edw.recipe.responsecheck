@@ -34,7 +34,7 @@ class Recipe(object):
         self.backends = options['backends'].split(' ')
         self.path = options['path'] + '/responsecheck.sh'
 
-    def install(self):
+    def write_script(self):
         script = open(self.path, 'w')
 
         script.write('#!/bin/bash\n')
@@ -63,8 +63,11 @@ class Recipe(object):
         script.close()
 
         os.chmod(self.path, 0755)
+
+    def install(self):
+        self.write_script()
         self.options.created(self.path)
         return self.options.created()
 
     def update(self):
-        pass
+        self.write_script()
