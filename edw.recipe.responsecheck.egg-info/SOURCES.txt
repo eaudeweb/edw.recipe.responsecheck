@@ -1,6 +1,8 @@
 MANIFEST.in
 README.rst
 setup.py
+docs/HISTORY.txt
+docs/LICENSE.txt
 edw/__init__.py
 edw.recipe.responsecheck.egg-info/PKG-INFO
 edw.recipe.responsecheck.egg-info/SOURCES.txt
@@ -12,5 +14,6 @@ edw.recipe.responsecheck.egg-info/requires.txt
 edw.recipe.responsecheck.egg-info/top_level.txt
 edw/recipe/__init__.py
 edw/recipe/responsecheck/__init__.py
+edw/recipe/responsecheck/version.txt
 edw/recipe/responsecheck/tests/__init__.py
 edw/recipe/responsecheck/tests/test_docs.py

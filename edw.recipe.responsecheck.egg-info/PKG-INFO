@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: edw.recipe.responsecheck
-Version: 0.9-dev
+Version: 0.9.4-dev
 Summary: A recipe that generates bash script for testing connectivity to application servers
 Home-page: http://github.com/eaudeweb/edw.recipe.responsecheck
 Author: Eau de Web
@@ -50,8 +50,25 @@ Description: Introduction
         Changelog
         =========
         
-        0.9 - (unreleased)
-        ------------------
+        0.9.4-dev - (unreleased)
+        ------------------------
+          - Added docs
+        
+        0.9.3-dev - (12.08.2014)
+        ------------------------
+          - Added version.txt
+        
+        0.9.2-dev - (12.08.2014)
+        ------------------------
+          - Fix README
+        
+        0.9.1-dev - (12.08.2014)
+        ------------------------
+          - Fix egg release
+        
+        
+        0.9-dev - (12.08.2014)
+        ----------------------
           - Verification of a port range
           - Verification for multiple backends
         
