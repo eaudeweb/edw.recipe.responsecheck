@@ -1,6 +1,2 @@
 setuptools
 zc.buildout
-
-[tests]
-zope.testing
-zc.buildout

@@ -1,114 +1,66 @@
 Metadata-Version: 1.1
 Name: edw.recipe.responsecheck
-Version: 0.9
-Summary: UNKNOWN
-Home-page: http://svn.plone.org/svn/collective/
-Author: UNKNOWN
-Author-email: UNKNOWN
-License: ZPL
-Description: .. contents::
-        
-        .. Note to recipe author!
-           ---------------------
-           Update the following URLs to point to your:
-           
-           - code repository
-           - bug tracker 
-           - questions/comments feedback mail 
-           (do not set a real mail, to avoid spams)
-        
-           Or remove it if not used.
-        
-        - Code repository: http://svn.somewhere.com/...
-        - Questions and comments to somemailing_list
-        - Report bugs at http://bug.somewhere.com/..
-        
-        
-        Detailed Documentation
-        **********************
-        
-        Supported options
-        =================
-        
-        The recipe supports the following options:
-        
-        .. Note to recipe author!
-           ----------------------
-           For each option the recipe uses you should include a description
-           about the purpose of the option, the format and semantics of the
-           values it accepts, whether it is mandatory or optional and what the
-           default value is if it is omitted.
-        
-        option1
-            Description for ``option1``...
-        
-        option2
-            Description for ``option2``...
-        
-        
-        Example usage
-        =============
-        
-        .. Note to recipe author!
-           ----------------------
-           zc.buildout provides a nice testing environment which makes it
-           relatively easy to write doctests that both demonstrate the use of
-           the recipe and test it.
-           You can find examples of recipe doctests from the PyPI, e.g.
-           
-             http://pypi.python.org/pypi/zc.recipe.egg
-        
-           The PyPI page for zc.buildout contains documentation about the test
-           environment.
-        
-             http://pypi.python.org/pypi/zc.buildout#testing-support
-        
-           Below is a skeleton doctest that you can start with when building
-           your own tests.
-        
-        We'll start by creating a buildout that uses the recipe::
-        
-            >>> write('buildout.cfg',
-            ... """
-            ... [buildout]
-            ... parts = test1
-            ...
-            ... [test1]
-            ... recipe = edw.recipe.responsecheck
-            ... option1 = %(foo)s
-            ... option2 = %(bar)s
-            ... """ % { 'foo' : 'value1', 'bar' : 'value2'})
-        
-        Running the buildout gives us::
-        
-            >>> print 'start', system(buildout) 
-            start...
-            Installing test1.
-            Unused options for test1: 'option2' 'option1'.
-            <BLANKLINE>
-        
-        
-        
-        Contributors
+Version: 0.9-dev
+Summary: A recipe that generates bash script for testing connectivity to application servers
+Home-page: http://github.com/eaudeweb/edw.recipe.responsecheck
+Author: Eau de Web
+Author-email: vitalie.maldur@eaudeweb.ro
+License: GPL
+Description: Introduction
         ************
         
-        "", Author
+        This recipe can be used to generate a bash script that can test connectivity to application servers.
+        
+        .. contents::
+        
+        Example of usage
+        ================
+        A simple buildout.cfg::
+        
+          [buildout]
+          parts = checker
+        
+          [checker]
+          recipe = edw.recipe.responsecheck
+          start-port = 8000
+          end-port = 9000
+          step = 2
+          backends = backend1 ... backend2
+          path = ${buildout:directory}/bin
+        
+        Recipe options
+        --------------
+        Explanation::
+        
+          start-port = Port to start the check.
+          end-port   = Port to end the check.
+          step       = The numeric value that the count is increased by each loop.
+          backends   = List of backend names separated by space character.
+          path       = Path to a folder where the bash script will be saved.
+        
+        Note: All options must be specified.
         
         
-        Change history
-        **************
+        Final result
+        ============
+        This recipe will generate a bash script that for each specified backend will test connectivity
+        to every port from start-port to end-port with the specified step.
         
-        0.9 (xxxx-xx-xx)
-        ----------------
         
-        - Created recipe with ZopeSkel
-          [""]
+        Changelog
+        =========
         
-        Download
-        ********
+        0.9 - (unreleased)
+        ------------------
+          - Verification of a port range
+          - Verification for multiple backends
         
+Keywords: edw recipe zope plone connectivity server
 Platform: UNKNOWN
-Classifier: Framework :: Buildout
+Classifier: Framework :: Zope2
+Classifier: Framework :: Zope3
+Classifier: Framework :: Plone
 Classifier: Intended Audience :: Developers
-Classifier: Topic :: Software Development :: Build Tools
-Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
