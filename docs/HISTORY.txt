@@ -1,7 +1,11 @@
 Changelog
 =========
 
-0.9.4-dev - (unreleased)
+1.0 - (released)
+----------------
+  - Stable version
+
+0.9.4-dev - (13.08.2014)
 ------------------------
   - Added docs
 
